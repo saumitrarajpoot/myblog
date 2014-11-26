@@ -1,0 +1,341 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/umakant/local/bin/node',
+1 verbose cli   '/home/umakant/local/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/home/umakant/node/myblog',
+5 verbose install   [ 'express',
+5 verbose install     'body-parser',
+5 verbose install     'cookie-parser',
+5 verbose install     'morgan',
+5 verbose install     'serve-favicon',
+5 verbose install     'debug',
+5 verbose install     'jade' ] ]
+6 info preinstall myblog@0.0.0
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'express@~4.9.0', null ]
+9 verbose cache add name=undefined spec="express@~4.9.0" args=["express@~4.9.0",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'express@~4.9.0',
+10 verbose parsed url   path: 'express@~4.9.0',
+10 verbose parsed url   href: 'express@~4.9.0' }
+11 verbose cache add [ 'body-parser@~1.8.1', null ]
+12 verbose cache add name=undefined spec="body-parser@~1.8.1" args=["body-parser@~1.8.1",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'body-parser@~1.8.1',
+13 verbose parsed url   path: 'body-parser@~1.8.1',
+13 verbose parsed url   href: 'body-parser@~1.8.1' }
+14 verbose cache add name="express" spec="~4.9.0" args=["express","~4.9.0"]
+15 verbose parsed url { protocol: null,
+15 verbose parsed url   slashes: null,
+15 verbose parsed url   auth: null,
+15 verbose parsed url   host: null,
+15 verbose parsed url   port: null,
+15 verbose parsed url   hostname: null,
+15 verbose parsed url   hash: null,
+15 verbose parsed url   search: null,
+15 verbose parsed url   query: null,
+15 verbose parsed url   pathname: '~4.9.0',
+15 verbose parsed url   path: '~4.9.0',
+15 verbose parsed url   href: '~4.9.0' }
+16 verbose addNamed [ 'express', '~4.9.0' ]
+17 verbose addNamed [ null, '>=4.9.0-0 <4.10.0-0' ]
+18 verbose cache add name="body-parser" spec="~1.8.1" args=["body-parser","~1.8.1"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '~1.8.1',
+19 verbose parsed url   path: '~1.8.1',
+19 verbose parsed url   href: '~1.8.1' }
+20 verbose addNamed [ 'body-parser', '~1.8.1' ]
+21 verbose addNamed [ null, '>=1.8.1-0 <1.9.0-0' ]
+22 verbose cache add [ 'cookie-parser@~1.3.3', null ]
+23 verbose cache add name=undefined spec="cookie-parser@~1.3.3" args=["cookie-parser@~1.3.3",null]
+24 verbose parsed url { protocol: null,
+24 verbose parsed url   slashes: null,
+24 verbose parsed url   auth: null,
+24 verbose parsed url   host: null,
+24 verbose parsed url   port: null,
+24 verbose parsed url   hostname: null,
+24 verbose parsed url   hash: null,
+24 verbose parsed url   search: null,
+24 verbose parsed url   query: null,
+24 verbose parsed url   pathname: 'cookie-parser@~1.3.3',
+24 verbose parsed url   path: 'cookie-parser@~1.3.3',
+24 verbose parsed url   href: 'cookie-parser@~1.3.3' }
+25 verbose cache add [ 'morgan@~1.3.0', null ]
+26 verbose cache add name=undefined spec="morgan@~1.3.0" args=["morgan@~1.3.0",null]
+27 verbose parsed url { protocol: null,
+27 verbose parsed url   slashes: null,
+27 verbose parsed url   auth: null,
+27 verbose parsed url   host: null,
+27 verbose parsed url   port: null,
+27 verbose parsed url   hostname: null,
+27 verbose parsed url   hash: null,
+27 verbose parsed url   search: null,
+27 verbose parsed url   query: null,
+27 verbose parsed url   pathname: 'morgan@~1.3.0',
+27 verbose parsed url   path: 'morgan@~1.3.0',
+27 verbose parsed url   href: 'morgan@~1.3.0' }
+28 verbose cache add [ 'serve-favicon@~2.1.3', null ]
+29 verbose cache add name=undefined spec="serve-favicon@~2.1.3" args=["serve-favicon@~2.1.3",null]
+30 verbose parsed url { protocol: null,
+30 verbose parsed url   slashes: null,
+30 verbose parsed url   auth: null,
+30 verbose parsed url   host: null,
+30 verbose parsed url   port: null,
+30 verbose parsed url   hostname: null,
+30 verbose parsed url   hash: null,
+30 verbose parsed url   search: null,
+30 verbose parsed url   query: null,
+30 verbose parsed url   pathname: 'serve-favicon@~2.1.3',
+30 verbose parsed url   path: 'serve-favicon@~2.1.3',
+30 verbose parsed url   href: 'serve-favicon@~2.1.3' }
+31 silly lockFile 6ae7fa08-express-4-9-0 express@~4.9.0
+32 verbose lock express@~4.9.0 /home/umakant/.npm/6ae7fa08-express-4-9-0.lock
+33 silly lockFile a49948c1-body-parser-1-8-1 body-parser@~1.8.1
+34 verbose lock body-parser@~1.8.1 /home/umakant/.npm/a49948c1-body-parser-1-8-1.lock
+35 verbose cache add name="cookie-parser" spec="~1.3.3" args=["cookie-parser","~1.3.3"]
+36 verbose parsed url { protocol: null,
+36 verbose parsed url   slashes: null,
+36 verbose parsed url   auth: null,
+36 verbose parsed url   host: null,
+36 verbose parsed url   port: null,
+36 verbose parsed url   hostname: null,
+36 verbose parsed url   hash: null,
+36 verbose parsed url   search: null,
+36 verbose parsed url   query: null,
+36 verbose parsed url   pathname: '~1.3.3',
+36 verbose parsed url   path: '~1.3.3',
+36 verbose parsed url   href: '~1.3.3' }
+37 verbose addNamed [ 'cookie-parser', '~1.3.3' ]
+38 verbose addNamed [ null, '>=1.3.3-0 <1.4.0-0' ]
+39 silly lockFile bf5babd8-cookie-parser-1-3-3 cookie-parser@~1.3.3
+40 verbose lock cookie-parser@~1.3.3 /home/umakant/.npm/bf5babd8-cookie-parser-1-3-3.lock
+41 verbose cache add name="morgan" spec="~1.3.0" args=["morgan","~1.3.0"]
+42 verbose parsed url { protocol: null,
+42 verbose parsed url   slashes: null,
+42 verbose parsed url   auth: null,
+42 verbose parsed url   host: null,
+42 verbose parsed url   port: null,
+42 verbose parsed url   hostname: null,
+42 verbose parsed url   hash: null,
+42 verbose parsed url   search: null,
+42 verbose parsed url   query: null,
+42 verbose parsed url   pathname: '~1.3.0',
+42 verbose parsed url   path: '~1.3.0',
+42 verbose parsed url   href: '~1.3.0' }
+43 verbose addNamed [ 'morgan', '~1.3.0' ]
+44 verbose addNamed [ null, '>=1.3.0-0 <1.4.0-0' ]
+45 silly lockFile a4a9bdf4-morgan-1-3-0 morgan@~1.3.0
+46 verbose lock morgan@~1.3.0 /home/umakant/.npm/a4a9bdf4-morgan-1-3-0.lock
+47 verbose cache add name="serve-favicon" spec="~2.1.3" args=["serve-favicon","~2.1.3"]
+48 verbose parsed url { protocol: null,
+48 verbose parsed url   slashes: null,
+48 verbose parsed url   auth: null,
+48 verbose parsed url   host: null,
+48 verbose parsed url   port: null,
+48 verbose parsed url   hostname: null,
+48 verbose parsed url   hash: null,
+48 verbose parsed url   search: null,
+48 verbose parsed url   query: null,
+48 verbose parsed url   pathname: '~2.1.3',
+48 verbose parsed url   path: '~2.1.3',
+48 verbose parsed url   href: '~2.1.3' }
+49 verbose addNamed [ 'serve-favicon', '~2.1.3' ]
+50 verbose addNamed [ null, '>=2.1.3-0 <2.2.0-0' ]
+51 silly lockFile 38295489-serve-favicon-2-1-3 serve-favicon@~2.1.3
+52 verbose lock serve-favicon@~2.1.3 /home/umakant/.npm/38295489-serve-favicon-2-1-3.lock
+53 verbose cache add [ 'debug@~2.0.0', null ]
+54 verbose cache add name=undefined spec="debug@~2.0.0" args=["debug@~2.0.0",null]
+55 verbose parsed url { protocol: null,
+55 verbose parsed url   slashes: null,
+55 verbose parsed url   auth: null,
+55 verbose parsed url   host: null,
+55 verbose parsed url   port: null,
+55 verbose parsed url   hostname: null,
+55 verbose parsed url   hash: null,
+55 verbose parsed url   search: null,
+55 verbose parsed url   query: null,
+55 verbose parsed url   pathname: 'debug@~2.0.0',
+55 verbose parsed url   path: 'debug@~2.0.0',
+55 verbose parsed url   href: 'debug@~2.0.0' }
+56 verbose cache add [ 'jade@~1.6.0', null ]
+57 verbose cache add name=undefined spec="jade@~1.6.0" args=["jade@~1.6.0",null]
+58 verbose parsed url { protocol: null,
+58 verbose parsed url   slashes: null,
+58 verbose parsed url   auth: null,
+58 verbose parsed url   host: null,
+58 verbose parsed url   port: null,
+58 verbose parsed url   hostname: null,
+58 verbose parsed url   hash: null,
+58 verbose parsed url   search: null,
+58 verbose parsed url   query: null,
+58 verbose parsed url   pathname: 'jade@~1.6.0',
+58 verbose parsed url   path: 'jade@~1.6.0',
+58 verbose parsed url   href: 'jade@~1.6.0' }
+59 verbose cache add name="debug" spec="~2.0.0" args=["debug","~2.0.0"]
+60 verbose parsed url { protocol: null,
+60 verbose parsed url   slashes: null,
+60 verbose parsed url   auth: null,
+60 verbose parsed url   host: null,
+60 verbose parsed url   port: null,
+60 verbose parsed url   hostname: null,
+60 verbose parsed url   hash: null,
+60 verbose parsed url   search: null,
+60 verbose parsed url   query: null,
+60 verbose parsed url   pathname: '~2.0.0',
+60 verbose parsed url   path: '~2.0.0',
+60 verbose parsed url   href: '~2.0.0' }
+61 verbose addNamed [ 'debug', '~2.0.0' ]
+62 verbose addNamed [ null, '>=2.0.0-0 <2.1.0-0' ]
+63 silly lockFile 12b6356d-debug-2-0-0 debug@~2.0.0
+64 verbose lock debug@~2.0.0 /home/umakant/.npm/12b6356d-debug-2-0-0.lock
+65 verbose cache add name="jade" spec="~1.6.0" args=["jade","~1.6.0"]
+66 verbose parsed url { protocol: null,
+66 verbose parsed url   slashes: null,
+66 verbose parsed url   auth: null,
+66 verbose parsed url   host: null,
+66 verbose parsed url   port: null,
+66 verbose parsed url   hostname: null,
+66 verbose parsed url   hash: null,
+66 verbose parsed url   search: null,
+66 verbose parsed url   query: null,
+66 verbose parsed url   pathname: '~1.6.0',
+66 verbose parsed url   path: '~1.6.0',
+66 verbose parsed url   href: '~1.6.0' }
+67 verbose addNamed [ 'jade', '~1.6.0' ]
+68 verbose addNamed [ null, '>=1.6.0-0 <1.7.0-0' ]
+69 silly lockFile ad8c17a8-jade-1-6-0 jade@~1.6.0
+70 verbose lock jade@~1.6.0 /home/umakant/.npm/ad8c17a8-jade-1-6-0.lock
+71 silly addNameRange { name: 'express', range: '>=4.9.0-0 <4.10.0-0', hasData: false }
+72 silly addNameRange { name: 'serve-favicon',
+72 silly addNameRange   range: '>=2.1.3-0 <2.2.0-0',
+72 silly addNameRange   hasData: false }
+73 silly addNameRange { name: 'body-parser',
+73 silly addNameRange   range: '>=1.8.1-0 <1.9.0-0',
+73 silly addNameRange   hasData: false }
+74 silly addNameRange { name: 'cookie-parser',
+74 silly addNameRange   range: '>=1.3.3-0 <1.4.0-0',
+74 silly addNameRange   hasData: false }
+75 silly addNameRange { name: 'morgan', range: '>=1.3.0-0 <1.4.0-0', hasData: false }
+76 silly addNameRange { name: 'debug', range: '>=2.0.0-0 <2.1.0-0', hasData: false }
+77 silly addNameRange { name: 'jade', range: '>=1.6.0-0 <1.7.0-0', hasData: false }
+78 verbose url raw express
+79 verbose url resolving [ 'http://registry.npmjs.org/', './express' ]
+80 verbose url resolved http://registry.npmjs.org/express
+81 info trying registry request attempt 1 at 14:11:22
+82 verbose etag "1A4EQ78W4H3BJZHKDTLB5GVLV"
+83 http GET http://registry.npmjs.org/express
+84 verbose url raw body-parser
+85 verbose url resolving [ 'http://registry.npmjs.org/', './body-parser' ]
+86 verbose url resolved http://registry.npmjs.org/body-parser
+87 info trying registry request attempt 1 at 14:11:22
+88 verbose etag "2Z3MRRW3UTD2PGDGVXU6ZKF4D"
+89 http GET http://registry.npmjs.org/body-parser
+90 verbose url raw morgan
+91 verbose url resolving [ 'http://registry.npmjs.org/', './morgan' ]
+92 verbose url resolved http://registry.npmjs.org/morgan
+93 info trying registry request attempt 1 at 14:11:22
+94 verbose etag "8ELLH52SOJI9QYW7H7RPI0VL0"
+95 http GET http://registry.npmjs.org/morgan
+96 verbose url raw serve-favicon
+97 verbose url resolving [ 'http://registry.npmjs.org/', './serve-favicon' ]
+98 verbose url resolved http://registry.npmjs.org/serve-favicon
+99 info trying registry request attempt 1 at 14:11:22
+100 verbose etag "7DE7XCB1YNR2K4M0V914W2FL0"
+101 http GET http://registry.npmjs.org/serve-favicon
+102 verbose url raw cookie-parser
+103 verbose url resolving [ 'http://registry.npmjs.org/', './cookie-parser' ]
+104 verbose url resolved http://registry.npmjs.org/cookie-parser
+105 info trying registry request attempt 1 at 14:11:22
+106 verbose etag "D2I21Z55J0M83YHA636O1DW9K"
+107 http GET http://registry.npmjs.org/cookie-parser
+108 verbose url raw debug
+109 verbose url resolving [ 'http://registry.npmjs.org/', './debug' ]
+110 verbose url resolved http://registry.npmjs.org/debug
+111 info trying registry request attempt 1 at 14:11:22
+112 verbose etag "EWQK2OLCUA4CKMN5129HSUFY1"
+113 http GET http://registry.npmjs.org/debug
+114 verbose url raw jade
+115 verbose url resolving [ 'http://registry.npmjs.org/', './jade' ]
+116 verbose url resolved http://registry.npmjs.org/jade
+117 info trying registry request attempt 1 at 14:11:22
+118 verbose etag "2O8A36TZF8FAVX35MDT0V2IQJ"
+119 http GET http://registry.npmjs.org/jade
+120 http 304 http://registry.npmjs.org/cookie-parser
+121 silly registry.get cb [ 304,
+121 silly registry.get   { date: 'Wed, 26 Nov 2014 08:41:22 GMT',
+121 silly registry.get     via: '1.1 varnish',
+121 silly registry.get     'last-modified': 'Wed, 26 Nov 2014 08:41:22 GMT',
+121 silly registry.get     'cache-control': 'max-age=60',
+121 silly registry.get     etag: '"D2I21Z55J0M83YHA636O1DW9K"',
+121 silly registry.get     age: '0',
+121 silly registry.get     connection: 'keep-alive',
+121 silly registry.get     'x-served-by': 'cache-sn89-SIN',
+121 silly registry.get     'x-cache': 'HIT',
+121 silly registry.get     'x-cache-hits': '1',
+121 silly registry.get     'x-timer': 'S1416991282.814664,VS0,VE0',
+121 silly registry.get     vary: 'Accept' } ]
+122 verbose etag cookie-parser from cache
+123 silly addNameRange number 2 { name: 'cookie-parser',
+123 silly addNameRange   range: '>=1.3.3-0 <1.4.0-0',
+123 silly addNameRange   hasData: true }
+124 silly addNameRange versions [ 'cookie-parser',
+124 silly addNameRange   [ '1.0.0',
+124 silly addNameRange     '1.0.1',
+124 silly addNameRange     '1.1.0',
+124 silly addNameRange     '1.2.0',
+124 silly addNameRange     '1.3.0',
+124 silly addNameRange     '1.3.1',
+124 silly addNameRange     '1.3.2',
+124 silly addNameRange     '1.3.3' ] ]
+125 verbose addNamed [ 'cookie-parser', '1.3.3' ]
+126 verbose addNamed [ '1.3.3', '1.3.3' ]
+127 silly lockFile 68450bd4-cookie-parser-1-3-3 cookie-parser@1.3.3
+128 verbose lock cookie-parser@1.3.3 /home/umakant/.npm/68450bd4-cookie-parser-1-3-3.lock
+129 silly lockFile 68450bd4-cookie-parser-1-3-3 cookie-parser@1.3.3
+130 silly lockFile 68450bd4-cookie-parser-1-3-3 cookie-parser@1.3.3
+131 silly lockFile bf5babd8-cookie-parser-1-3-3 cookie-parser@~1.3.3
+132 silly lockFile bf5babd8-cookie-parser-1-3-3 cookie-parser@~1.3.3
+133 error Error: EACCES, open '/home/umakant/.npm/cookie-parser/1.3.3/package/package.json'
+133 error  { [Error: EACCES, open '/home/umakant/.npm/cookie-parser/1.3.3/package/package.json']
+133 error   errno: 3,
+133 error   code: 'EACCES',
+133 error   path: '/home/umakant/.npm/cookie-parser/1.3.3/package/package.json',
+133 error   parent: 'myblog' }
+134 error Please try running this command again as root/Administrator.
+135 error System Linux 3.5.0-54-generic
+136 error command "/home/umakant/local/bin/node" "/home/umakant/local/bin/npm" "install"
+137 error cwd /home/umakant/node/myblog
+138 error node -v v0.10.29
+139 error npm -v 1.4.14
+140 error path /home/umakant/.npm/cookie-parser/1.3.3/package/package.json
+141 error code EACCES
+142 error errno 3
+143 error stack Error: EACCES, open '/home/umakant/.npm/cookie-parser/1.3.3/package/package.json'
+144 verbose exit [ 3, true ]
