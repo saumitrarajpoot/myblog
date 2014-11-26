@@ -1,0 +1,53 @@
+.clear{
+  min-height: 5px;
+  clear: both;
+}
+
+.clearboth{
+  clear: both;
+}
+
+.errors{
+  color: red;
+}
+
+.mandatory{
+  border-left: 2px solid #ff0000 !important;
+}
+
+.auth-block{
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  box-shadow: 0 3px 20px #888888;
+}
+
+.auth-block-header{
+  padding:10px 0px;
+  background-color: #737373;
+  border-radius: 6px 6px 0px 0px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.sign_img_anchor {
+  background-color: #fafafa;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none !important;
+}
+
+.sing_ordevider{
+  border-bottom: 1px solid #d3d3d3;
+  border-top: 1px solid #d3d3d3;
+  margin: 10px;
+  padding: 5px;
+}
+
+.signin_with_div{
+  width: 200px;
+}
+
+.signin_img{
+  width: 25px;
+}
