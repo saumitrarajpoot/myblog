@@ -4,7 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mysql      = require('mysql');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 
 // view engine setup
@@ -19,25 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 require('./config/routes')(app);
+app.use(passport.initialize());
+app.use(passport.session());
 
 /*database connectivity*/
-var connection = mysql.createConnection({
-  connectionLimit : 10,
-  host     : 'localhost',
-  database : 'node_blog',
-  user     : 'root',
-  password : 'root'
+var databaseConfig = require('./config/database.js');
+mongoose.connect(databaseConfig.url);
+var db = mongoose.connection;
+db.once('open', function() {
+  console.log('connected to database');
 });
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected to database as id ' + connection.threadId);
-});
-
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

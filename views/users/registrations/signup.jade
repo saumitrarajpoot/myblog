@@ -1,0 +1,102 @@
+extends ../../layout/layout
+
+block content
+  .row
+    .col-lg-3
+    .col-lg-6
+      br
+      br
+      br
+      .row
+        .col-lg-1
+        .col-lg-10
+          .auth-block
+            .row
+              .col-lg-12
+                .auth-block-header
+                  center Sign up
+            .clear
+            .clear
+            .clear
+            - if (errors && errors.length > 0)
+              - each error in errors
+                .row.errors
+                  .col-lg-3
+                  .col-lg-6
+                    = error.msg
+                  .col-lg-3
+              .clear
+              .clear
+              .clear
+            form(action='/users/signup', method='post')
+              .row
+                .col-lg-3
+                .col-lg-6 Email
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='text', value=(user ? user.email : ''), name='email', placeholder='email', class='form-control mandatory')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6 Username
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='text', value=(user ? user.username : ''), name='username', placeholder='username', class='form-control mandatory')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6 Name
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='text', value=(user ? user.name : ''), name='name', placeholder='Name', class='form-control')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6 Password
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='password', name='password', placeholder='password', autocomplete='off', class='form-control mandatory')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6 Password Confirmation
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='password', name='password_confirmation', placeholder='password confirmation', autocomplete='off', class='form-control mandatory')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='submit', name='Sign up' value="Sign up", autocomplete='off', class='btn btn-primary form-control')
+                .col-lg-3
+            .clear
+            .clear
+            .clear
+        .col-lg-1
+    .col-lg-6
+

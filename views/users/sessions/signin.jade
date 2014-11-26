@@ -1,0 +1,88 @@
+extends ../../layout/layout
+
+block content
+  .row
+    .col-lg-3
+    .col-lg-6
+      br
+      br
+      br
+      .row
+        .col-lg-1
+        .col-lg-10
+          .auth-block
+            .row
+              .col-lg-12
+                .auth-block-header
+                  center Sign in
+            .clear
+            .clear
+            .clear
+            .row
+              .col-lg-3
+              .col-lg-6
+                a.sign_img_anchor.col-lg-12(href='/users/auth/google_oauth2')
+                  image.signin_img(src='/images/google.png')
+                  &nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google
+              .col-lg-3
+            .clear
+            .row
+              .col-lg-3
+              .col-lg-6
+                a.sign_img_anchor.col-lg-12(href='/users/auth/google_oauth2')
+                  image.signin_img(src='/images/facebook.png')
+                  &nbsp;&nbsp;&nbsp;&nbsp;Sign in with Facebook
+              .col-lg-3
+            .clear
+            .row
+              .col-lg-3
+              .col-lg-6
+                a.sign_img_anchor.col-lg-12(href='/users/auth/google_oauth2')
+                  image.signin_img(src='/images/linkedin.png')
+                  &nbsp;&nbsp;&nbsp;&nbsp;Sign in with Linkedin
+              .col-lg-3
+            .clear
+            .clear
+            .row
+              .col-lg-3
+              .col-lg-6.sing_ordevider
+                center or
+              .col-lg-3
+            .clear
+            .clear
+            form(action='/users/signin', method='post')
+              .row
+                .col-lg-3
+                .col-lg-6 Email
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='text', name='email', placeholder='email', class='form-control')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6 Password
+                .col-lg-3
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='password', name='password', placeholder='password', autocomplete='off', class='form-control')
+                .col-lg-3
+              .clear
+              .clear
+              .row
+                .col-lg-3
+                .col-lg-6
+                  input(type='submit', name='Sign in' value="Sign in", autocomplete='off', class='btn btn-primary form-control')
+                .col-lg-3
+            .clear
+            .clear
+            .clear
+        .col-lg-1
+    .col-lg-6
+
