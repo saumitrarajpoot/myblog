@@ -58,7 +58,21 @@ UserSchema.methods = {
     } else{
       fn(errors, this);
     }
+  },
+
+  authenticate: function (plainText) {
+    return password_ecryption(plainText, this.salt) === this.password;
   }
+
 };
 
+UserSchema.statics = {
+
+  load: function (options, cb) {
+    options.select = options.select || 'name username';
+    this.findOne(options.criteria)
+      .select(options.select)
+      .exec(cb);
+  }
+};
 exports.User = mongoose.model('User', UserSchema);

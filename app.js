@@ -30,10 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator([]));
-require('./config/routes')(app);
 app.use(passport.initialize());
 app.use(passport.session());
-
+require('./config/passport')(passport);
+require('./config/routes')(app, passport);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
