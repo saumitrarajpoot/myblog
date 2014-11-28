@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+var fs = require('fs');
 var mongoose = require('mongoose');
 var expressValidator = require('express-validator');
 var passport = require('passport');
+var expressSession = require('express-session')
 var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 
@@ -22,6 +25,11 @@ db.once('open', function() {
   console.log('connected to database');
 });
 
+var models_path = __dirname + '/app/models'
+fs.readdirSync(models_path).forEach(function (file) {
+  if (~file.indexOf('.js')) require(models_path + '/' + file)
+})
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -30,10 +38,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator([]));
+app.use(expressSession({secret: 'secretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
 require('./config/routes')(app, passport);
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

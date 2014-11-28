@@ -3,8 +3,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose');
-var model = require('../../models/user');
-var User = model.User;
+var User = mongoose.model('User');
 /**
  * List
  */

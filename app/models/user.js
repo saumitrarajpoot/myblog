@@ -73,6 +73,17 @@ UserSchema.statics = {
     this.findOne(options.criteria)
       .select(options.select)
       .exec(cb);
+  },
+
+  findByEmailAndPassword: function(email,password,cb){
+    Model.findOne({email:email}, function(err,user) {
+      if (err)   return cb(err)
+      if (!user) return cb()
+
+      bcrypt.compare(password, user.passwordHash, function(err,res) {
+        return cb(err, res ? user : null)
+      })
+    })
   }
 };
-exports.User = mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema);
