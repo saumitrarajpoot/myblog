@@ -63,7 +63,6 @@ UserSchema.methods = {
   authenticate: function (plainText) {
     return password_ecryption(plainText, this.salt) === this.password;
   }
-
 };
 
 UserSchema.statics = {
@@ -74,16 +73,9 @@ UserSchema.statics = {
       .select(options.select)
       .exec(cb);
   },
-
-  findByEmailAndPassword: function(email,password,cb){
-    Model.findOne({email:email}, function(err,user) {
-      if (err)   return cb(err)
-      if (!user) return cb()
-
-      bcrypt.compare(password, user.passwordHash, function(err,res) {
-        return cb(err, res ? user : null)
-      })
-    })
+  getUser: function(userId){
+    this.findOne({_id: userId}).exec(cb);
   }
+
 };
 mongoose.model('User', UserSchema);

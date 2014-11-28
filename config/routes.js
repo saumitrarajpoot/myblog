@@ -12,6 +12,7 @@ module.exports = function (app, passport) {
       successRedirect: '/homes',
       failureRedirect: '/users/signin'
     }));
+  app.get('/users/signout', sessions.destroy);
   app.get('/users/signup', registrations.signup);
   app.post('/users/signup', registrations.createAccount);
   app.get('/homes', homes.home);

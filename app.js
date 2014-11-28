@@ -11,6 +11,7 @@ var expressValidator = require('express-validator');
 var passport = require('passport');
 var expressSession = require('express-session')
 var LocalStrategy = require('passport-local').Strategy;
+var auth = require( __dirname + '/config/middlewares/attachAuthenticationStatus');
 var app = express();
 
 // view engine setup
@@ -41,6 +42,7 @@ app.use(expressValidator([]));
 app.use(expressSession({secret: 'secretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(auth);
 require('./config/passport')(passport);
 require('./config/routes')(app, passport);
 

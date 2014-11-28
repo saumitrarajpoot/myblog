@@ -9,3 +9,9 @@ exports.createSession = function (req, res){
   delete req.session.returnTo;
   res.redirect(redirectTo);
 };
+
+exports.destroy = function(req, res){
+  req.logout()
+  //req.flash('notice', 'You have successfully signed out.')
+  res.redirect('/')
+}

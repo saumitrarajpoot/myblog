@@ -46,10 +46,15 @@ html
                   li
                     a(href='#') One more separated link
             ul.nav.navbar-nav.navbar-right
-              li
-                a(href='/users/signin') Singin
-              li
-                a(href='/users/signup') Signup
+              if !isAuthenticated
+                li
+                  a(href='/users/signin') Singin
+                li
+                  a(href='/users/signup') Signup
+              else
+                li
+                  a(href='/users/signout') Sing out
+
           //
              /.navbar-collapse
         //
