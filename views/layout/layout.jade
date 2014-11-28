@@ -53,10 +53,9 @@ html
                   a(href='/users/signup') Signup
               else
                 li
+                  a(href='javascript:void(0);') #{currentUser.username}
+                li
                   a(href='/users/signout') Sing out
 
-          //
-             /.navbar-collapse
-        //
-           /.container-fluid
+          include flash
     block content
