@@ -12,6 +12,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session')
 var connectFlash = require('connect-flash');
+var csurf = require('csurf')
 
 var env         = process.env.NODE_ENV || 'development';
 var packageJson = require('../package.json');
@@ -42,10 +43,6 @@ global.App = {
   }
 }
 
-
-var auth = App.middleware('attachAuthenticationStatus');
-var setFlash = App.middleware('setFlash');
-
 // view engine setup
 App.app.set('views', App.appPath('/app/views'));
 App.app.set('view engine', 'jade');
@@ -74,11 +71,18 @@ App.app.use(expressValidator([]));
 App.app.use(expressSession({secret: 'secretKey'}));
 App.app.use(passport.initialize());
 App.app.use(passport.session());
+var auth = App.middleware('attachAuthenticationStatus');
 App.app.use(auth);
 App.app.use(connectFlash());
-App.app.use(setFlash);
+App.app.use(csurf());
+
 require(App.appPath('/config/passport'))(passport);
 require(App.appPath('/config/routes'))(App.app, passport);
+
+var setFlash = App.middleware('setFlash');
+var invalidCsrfToken  =  App.middleware('invalidCsrfToken');
+App.app.use(setFlash);
+App.app.use(invalidCsrfToken);
 
 // catch 404 and forward to error handler
 App.app.use(function(req, res, next) {

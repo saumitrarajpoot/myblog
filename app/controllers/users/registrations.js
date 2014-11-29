@@ -11,7 +11,8 @@ var User = mongoose.model('User');
 exports.signup = function (req, res){
   var user = new User();
   res.render('users/registrations/signup', {
-    'user' : user
+    'user' : user,
+    'csrfToken' : req.csrfToken()
   });
 };
 

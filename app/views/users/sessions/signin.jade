@@ -51,6 +51,7 @@ block content
             .clear
             .clear
             form(action='/users/signin', method='post')
+              input(type="hidden", name="_csrf", value="#{csrfToken}")
               .row
                 .col-lg-3
                 .col-lg-6 Email
