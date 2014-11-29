@@ -9,9 +9,11 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var expressValidator = require('express-validator');
 var passport = require('passport');
-var expressSession = require('express-session')
 var LocalStrategy = require('passport-local').Strategy;
+var expressSession = require('express-session')
+var connectFlash = require('connect-flash');
 var auth = require( __dirname + '/config/middlewares/attachAuthenticationStatus');
+var setFlash = require( __dirname + '/config/middlewares/setFlash');
 var app = express();
 
 // view engine setup
@@ -43,6 +45,8 @@ app.use(expressSession({secret: 'secretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(auth);
+app.use(connectFlash());
+app.use(setFlash);
 require('./config/passport')(passport);
 require('./config/routes')(app, passport);
 

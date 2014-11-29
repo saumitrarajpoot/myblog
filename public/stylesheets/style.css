@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+ .notification {
+  min-width: 600px;
+  position: fixed;
+  right: 10px;
+  top: 5px;
+  z-index: 5000;
+  text-align: left;
+}
