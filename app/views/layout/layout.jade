@@ -2,10 +2,11 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/signin_signup.css')
     link(rel='stylesheet', href='/stylesheets/bootstraps/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/bootstraps/bootstrap-theme.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/signin_signup.css')
+    link(rel='stylesheet', href='/stylesheets/blogs.css')
     script(src='/javascripts/jquery-2.1.1.min.js')
     script(src='/javascripts/bootstraps/bootstrap.min.js')
   body
@@ -24,27 +25,17 @@ html
              Collect the nav links, forms, and other content for toggling
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav
-              li.active
-                a(href='#') Link
-              li
-                a(href='#') Link
-              li.dropdown
-                a.dropdown-toggle(data-toggle='dropdown', href='#')
-                  | Dropdown
-                  span.caret
-                ul.dropdown-menu(role='menu')
-                  li
-                    a(href='#') Action
-                  li
-                    a(href='#') Another action
-                  li
-                    a(href='#') Something else here
-                  li.divider
-                  li
-                    a(href='#') Separated link
-                  li.divider
-                  li
-                    a(href='#') One more separated link
+              if !isAuthenticated
+                li
+                  a(href='#') Blogs
+              else
+                li.dropdown
+                  a.dropdown-toggle(data-toggle='dropdown', href='#')
+                    | Blogs
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='/blogs/new') New blog
             ul.nav.navbar-nav.navbar-right
               if !isAuthenticated
                 li
