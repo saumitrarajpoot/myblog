@@ -1,0 +1,10 @@
+- if (flash && flash.notice && flash.notice.length > 0)
+  center
+    p.alert.alert-success.notification
+      a.close(data-dismiss="alert") &times;
+      = flash.notice
+- if (flash && flash.error && flash.error.length > 0)
+  center
+    p.alert.alert-danger.notification
+      a.close(data-dismiss="alert") &times;
+      = flash.error
