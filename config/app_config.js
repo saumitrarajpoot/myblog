@@ -13,6 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session')
 var connectFlash = require('connect-flash');
 var csurf = require('csurf')
+var Promise = require("bluebird")
 
 var env         = process.env.NODE_ENV || 'development';
 var packageJson = require('../package.json');
