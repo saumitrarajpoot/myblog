@@ -8,7 +8,8 @@ exports.home = function (req, res){
     return res.render('homes/home', {
       user: user
     });
-  }).then (undefined, function (err) {
+  }).then(undefined, function(err) {
+    req.flash('error', err.message)
     return res.render('homes/home', {
       user: undefined
     });

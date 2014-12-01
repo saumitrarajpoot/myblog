@@ -69,7 +69,8 @@ App.app.use(bodyParser.urlencoded({ extended: false }));
 App.app.use(cookieParser());
 App.app.use(express.static(path.join(App.root, 'public')));
 App.app.use(expressValidator([]));
-App.app.use(expressSession({secret: 'secretKey'}));
+App.app.use(expressSession({secret: 'secretKey', saveUninitialized: true, resave: true}));
+//App.app.use(expressSession({secret: 'secretKey'}));
 App.app.use(passport.initialize());
 App.app.use(passport.session());
 var auth = App.middleware('attachAuthenticationStatus');
@@ -87,9 +88,9 @@ App.app.use(invalidCsrfToken);
 
 // catch 404 and forward to error handler
 App.app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers
