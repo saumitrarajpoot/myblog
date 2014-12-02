@@ -3,10 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
- .notification {
+.notification {
   min-width: 600px;
   position: fixed;
   right: 10px;
@@ -18,4 +15,19 @@ a {
 .bdr{
   border-bottom: 1px solid lightgray;
   margin-bottom: 5px;
+}
+
+.clearboth{
+  margin-bottom: 5px;
+  clear: both;
+}
+
+.floatL{
+  text-align: left;
+}
+.floatR{
+  text-align: Right;
+}
+.btn{
+  margin-right: 8px;
 }

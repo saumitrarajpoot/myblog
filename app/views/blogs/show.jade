@@ -1,0 +1,24 @@
+extends ../layout/layout
+
+block content
+  .clear
+  .clear
+  .row
+    .col-lg-1
+    .col-lg-10
+      div.floatL.row
+        h3 Blog
+      .row.bdr
+      if blog
+        div.floatL.row.blg-header
+          a(href="javascript:void(0);") #{blog.title}
+        div.row.floatL.blg-content
+          div #{blog.content}
+        div.clearboth
+        div.row
+          if currentUser && currentUser.id === blog.user_id
+            a.btn.btn-primary(href="/blogs/#{blog.id}/edit") &nbsp;&nbsp;Edit&nbsp;&nbsp;
+          a(class='btn btn-primary', href="/blogs") &nbsp;&nbsp;Back&nbsp;&nbsp;
+      else
+        div.row  There is not exist this blog now.
+    .col-lg-1

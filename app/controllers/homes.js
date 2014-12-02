@@ -4,9 +4,9 @@ var Blog = mongoose.model('Blog');
 
 exports.home = function (req, res){
   var user;
-  User.findOne({_id: req.user._id}).exec().then(function(user){
+  Blog.find({user_id: req.user.id}).exec().then(function(blogs){
     return res.render('homes/home', {
-      user: user
+      blogs: blogs
     });
   }).then(undefined, function(err) {
     req.flash('error', err.message)

@@ -1,3 +1,23 @@
-form{
+form {
   padding: 5px;
+}
+.blogs-list {
+  padding: 10px;
+}
+
+.blg-header {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+
+.blg-content {
+
+}
+
+.blg-textarea{
+  max-width: 712px;
+  min-height: 150px;
+  min-width: 712px;
+  padding: 6px 10px;
 }

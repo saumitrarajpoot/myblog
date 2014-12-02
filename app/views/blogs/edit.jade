@@ -18,23 +18,25 @@ block content
                 .col-lg-10
                   = error.msg
             .clear
-          form(action='/blogs/create', method='post')
+          form(action='/blogs/#{blog.id}/update', method='post')
             input(type="hidden", name="_csrf", value="#{csrfToken}")
             .clear
             .row
               .col-lg-2 Title
               .col-lg-10
-                input(type='text', name='title', placeholder='title', class='form-control')
+                input(type='text', name='title',value="#{blog.title}" placeholder='title', class='form-control')
             .clear
             .row
               .col-lg-2 Content
               .col-lg-10
-                textarea.blg-textarea(name='content', rows="4", cols="85", placeholder='Content type here')
+                textarea.blg-textarea(name='content', placeholder='Content type here') #{blog.content}
             .clear
             .row
               .col-lg-2
-              .col-lg-2
-                input(type='submit', name='create_blog' value="Create Blog", autocomplete='off', class='btn btn-primary form-control')
+              .col-lg-8
+                input(type='submit', name='create_blog' value="Update Blog", class='btn btn-primary')
+                a(class='btn btn-primary', href="/blogs/#{blog.id}") Cancel
+                input(type='button', id='delete_blog' value="Delete", data-blog-id="#{blog.id}" class='btn btn-danger')
               .col-lg-2
           .clear
           .bdr
