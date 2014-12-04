@@ -6,7 +6,7 @@ var blogs = require('../app/controllers/blogs');
 var auth = require('./middlewares/authorization');
 
 module.exports = function (app, passport) {
-  app.get('/',  homes.home);
+  app.get('/',  blogs.index);
   //app.get('/blogs', auth.requiresLogin,);
 
   app.get('/users/signin', sessions.signin);

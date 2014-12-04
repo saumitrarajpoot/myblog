@@ -6,16 +6,16 @@ block content
   .row
     .col-lg-1
     .col-lg-10
-        if blogs.length > 0
-          div.floatL.row
-            h3 Blogs
-          .row.bdr
-          .div.blogs-list
-            for blog in blogs
-              div.floatL.row.blg-header
-                a(href="/blogs/#{blog.id}") #{blog.title}
-              div.row.floatL.blg-content
-                div #{blog.content}
-        else
-          div There is no Blog.
+      div.floatL.row
+        h3 Blogs
+      .row.bdr
+      if blogs !== undefined && blogs.length > 0
+        .div.blogs-list
+          for blog in blogs
+            div.floatL.row.blg-header
+              a(href="/blogs/#{blog.id}") #{blog.title}
+            div.row.floatL.blg-content
+              div #{blog.content}
+      else
+        div There is no Blog.
     .col-lg-1
