@@ -3,21 +3,19 @@ var expressValidator = require('express-validator');
 var Schema = mongoose.Schema;
 
 var BlogSchema = new Schema({
-  title: { type: String, default: '' },
+  title: { type: String, required: '{PATH} is required!' },
   content: { type: String, default: '' },
-  user_id: { type: String, default: '' },
+  user_id: mongoose.Schema.ObjectId,
   createdAt: {
     type: Date,
     'default': Date.now
   },
 });
 
-
-var isValidate = function(req){
-  req.assert('title', 'Title is required').notEmpty();
-  var errors = req.validationErrors();
-  return errors;
-};
+BlogSchema.pre('save', function(next){
+  console.log('control in blog schema');
+  next();
+});
 
 BlogSchema.methods = {
   createBlog : function(req, fn){

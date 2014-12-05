@@ -17,15 +17,25 @@ exports.signup = function (req, res){
 };
 
 exports.createAccount = function(req, res){
-  var user = new User();
-  user.createUser(req, function (err, user) {
+  var user = new User(req.body);
+  user.save(function (err, user) {
     if (!err) {
       req.flash('success', 'Successfully created user!');
       return res.redirect('/');
     } else {
+      var errors = [];
+      var user = new User(req.body);
+      user.password = '';
+      user.password_confirmation = '';
+
+      for(var error in err.errors){
+        errors.push(err.errors[error].message);
+      }
+
       res.render('users/registrations/signup', {
-        'errors' : err,
-        'user' : user
+        'errors' : errors,
+        'user' : user,
+        'csrfToken' : req.csrfToken()
       });
     }
   });

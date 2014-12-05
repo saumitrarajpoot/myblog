@@ -29,6 +29,15 @@ block content
               .clear
               .clear
             form(action='/users/signup', method='post')
+              .clear
+              - if (errors && errors.length > 0)
+                .row
+                  .col-lg-2 &nbsp;
+                  .col-lg-9.errors.alert.alert-danger
+                    - each error in errors
+                      = error
+                      br
+                .clear
               input(type="hidden", name="_csrf", value="#{csrfToken}")
               .row
                 .col-lg-3

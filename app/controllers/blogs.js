@@ -23,14 +23,19 @@ exports.new = function (req, res){
 };
 
 exports.create = function (req, res){
-  var blog = new Blog();
-  blog.createBlog(req, function (err, blog) {
+  var blog = new Blog(req.body);
+  blog.save(function (err, blog) {
     if (!err) {
       req.flash('success', 'Successfully created blog!');
       return res.redirect('/homes');
     } else {
+      var errors = [];
+      var blog = new Blog(req.body);
+      for(var error in err.errors){
+        errors.push(err.errors[error].message);
+      }
       res.render('blogs/new', {
-        'errors' : err,
+        'errors' : errors,
         'blog' : blog,
         'csrfToken' : req.csrfToken()
       });

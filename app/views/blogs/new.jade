@@ -11,14 +11,16 @@ block content
           h3 New Blog
           .clear
           .bdr
-          - if (errors && errors.length > 0)
-            - each error in errors
-              .row.errors
-                .col-lg-2
-                .col-lg-10
-                  = error.msg
-            .clear
           form(action='/blogs/create', method='post')
+            .clear
+            - if (errors && errors.length > 0)
+              .row
+                .col-lg-2 &nbsp;
+                .col-lg-9.errors.alert.alert-danger
+                  - each error in errors
+                    = error
+                    br
+              .clear
             input(type="hidden", name="_csrf", value="#{csrfToken}")
             .clear
             .row

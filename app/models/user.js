@@ -6,33 +6,71 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   name: { type: String, default: '' },
-  email: { type: String, index: { unique: true }, default: '' },
-  username: { type: String, index: { unique: true }, default: '' },
-  password: { type: String, default: '' },
+  email: {
+    type: String,
+    index: { unique: true },
+    required: '{PATH} is required!',
+    match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'A valid email is required'],
+  },
+  username: {
+    type: String,
+    index: { unique: true },
+    required: '{PATH} is required!'
+  },
+  password: {type: String },
   salt: { type: String, required: true, default: uuid.v1 },
   createdAt: {
     type: Date,
     'default': Date.now
   },
-  provider: {type: String, default: 'local'}
+  provider: {type: String, default: 'local'},
+  blogs: [mongoose.Schema.ObjectId]
 });
- 
 
-var isValidate = function(req){
-  req.assert('username', 'Userame is required').notEmpty();
-  req.assert('email', 'Email is required').notEmpty();
-  req.assert('email', 'A valid email is required').isEmail();
-  req.assert('password', 'Password is required').notEmpty();
-  req.assert('password', '8 to 20 characters required').len(8, 20);
-  var errors = req.validationErrors();
-  if(req.body.password != req.body.password_confirmation){
-    if(!errors){ errors = []; }
-    errors.push({ param: 'password_confirmation',
-    msg: 'Password and password confirmation does not match',
-    value: '' });
+UserSchema.virtual('password_confirmation')
+  .get(function() {
+    return this._password_confirmation;
+  })
+  .set(function(value) {
+  this._password_confirmation = value;
+});
+
+UserSchema.path('password').validate(function() {
+  if (this.password || this._password_confirmation) {
+    if (this.password.length < 8) {
+      this.invalidate('password', 'must be at least 8 characters.');
+    }
+    if (this.password !== this._password_confirmation) {
+      this.invalidate('password_confirmation', 'password does not match password confirmation.');
+    }
   }
-  return errors;
-};
+
+  if (this.isNew && !this.password) {
+    this.invalidate('password', 'password is required');
+  }
+}, null);
+
+UserSchema.path('email').validate(function(value, respond) {
+  mongoose.models["User"].findOne({email: value}, function(err, user) {
+    if(err) throw err;
+    if(user) return respond(false);
+    respond(true);
+  });
+}, 'email already exists');
+
+UserSchema.path('username').validate(function(value, respond) {
+  mongoose.models["User"].findOne({username: value}, function(err, user) {
+    if(err) throw err;
+    if(user) return respond(false);
+    respond(true);
+  });
+}, 'username already exists');
+
+
+UserSchema.pre('save', function(next){
+  this.password = password_ecryption(this.password, this.salt);
+  next();
+});
 
 var password_ecryption = function(password, salt) {
   var encrypted_password = crypto.createHmac('sha256', salt).update(password).digest('hex');
@@ -40,33 +78,12 @@ var password_ecryption = function(password, salt) {
 };
 
 UserSchema.methods = {
-  createUser : function(req, fn){
-    var errors = isValidate(req);
-    var params = req.body
-    this.name = params['name'].trim();
-    this.email = params['email'].trim();
-    this.username = params['username'].trim();
-
-    if(!errors){
-      encrypted_password = password_ecryption(params['password'].trim(), this.salt);
-      this.password =  encrypted_password;
-      if(encrypted_password != null && encrypted_password != '') {
-        this.save(function (err) {
-          fn(err, this);
-        });
-      }
-    } else{
-      fn(errors, this);
-    }
-  },
-
   authenticate: function (plainText) {
     return password_ecryption(plainText, this.salt) === this.password;
-  }
+  },
 };
 
 UserSchema.statics = {
-
   load: function (options, cb) {
     options.select = options.select || 'name username';
     this.findOne(options.criteria)
@@ -75,6 +92,6 @@ UserSchema.statics = {
   getUser: function(userId){
     this.findOne({_id: userId}).exec(cb);
   }
-
 };
+
 mongoose.model('User', UserSchema);
