@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Blog = mongoose.model('Blog');
+var User = mongoose.model('User');
 
 exports.index = function (req, res){
   var user;
@@ -23,9 +24,19 @@ exports.new = function (req, res){
 };
 
 exports.create = function (req, res){
+  var user = req.user;
   var blog = new Blog(req.body);
+  blog.user = user.id;
   blog.save(function (err, blog) {
     if (!err) {
+      User.findOneAndUpdate(
+        {_id: req.user.id},
+        {$push: {blogs: blog}},
+        {safe: true, upsert: true},
+        function(err, model) {
+          console.log(err);
+        }
+      );
       req.flash('success', 'Successfully created blog!');
       return res.redirect('/homes');
     } else {

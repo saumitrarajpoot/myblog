@@ -24,7 +24,7 @@ var UserSchema = new Schema({
     'default': Date.now
   },
   provider: {type: String, default: 'local'},
-  blogs: [mongoose.Schema.ObjectId]
+  blogs: [{ type: Schema.Types.ObjectId, ref: 'Blog' }]
 });
 
 UserSchema.virtual('password_confirmation')
